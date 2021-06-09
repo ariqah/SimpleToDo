@@ -56,9 +56,16 @@ public class MainActivity extends AppCompatActivity {
                         btnDelete.setEnabled(false);
                         break;
                     case 1: //for delete task
+                        lvTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                etTask.setText(""+position);
+                            }
+                        });
                         etTask.setHint("Type in the index of the task to be removed");
                         btnDelete.setEnabled(true);
                         btnAdd.setEnabled(false);
+
                         break;
                 }
             }
@@ -66,13 +73,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
-            }
-        });
-
-        lvTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                etTask.setText(""+position);
             }
         });
 
